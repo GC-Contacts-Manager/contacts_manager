@@ -12,9 +12,9 @@ public class Initialization {
                 "Enter an option (1, 2, 3, 4 or 5):\n");
         int userChoice = scanner.nextInt();
         scanner.nextLine();
-
+        ReadContacts contacts = new ReadContacts();
         if (userChoice == 1){
-            new ReadContacts();
+            contacts.readContacts();
             System.out.println("Would you like to select another option? [Y/N]");
             String continueProgram = scanner.nextLine();
             if(continueProgram.equalsIgnoreCase("y")){
@@ -28,7 +28,7 @@ public class Initialization {
                 startProgram();
             }
         } else if(userChoice == 3) {
-            new SearchContact();
+            SearchContact.searchContacts();
             System.out.println("Would you like to select another option? [Y/N]");
             String continueProgram = scanner.nextLine();
             if (continueProgram.equalsIgnoreCase("y")) {
