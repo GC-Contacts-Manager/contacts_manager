@@ -11,6 +11,7 @@ public class SearchContact {
         String filename = "contacts.txt";
         Path dataFile = Paths.get(directory, filename);
         Scanner scanner = new Scanner(System.in);
+
         System.out.println("Input the contact you would like to find.");
         String contactInput = scanner.nextLine();
         try {
