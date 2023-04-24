@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class SearchContact {
-    public static void searchContacts(){
+    public void searchContacts(){
         String directory = "contacts";
         String filename = "contacts.txt";
         Path dataFile = Paths.get(directory, filename);
