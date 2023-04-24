@@ -1,4 +1,4 @@
-John Marston
-Arthur Morgan
-Dutch Van Der Linde
-Sadie Adler
+John Marston || 123456789
+Arthur Morgan || 2103314814
+Dutch Van Der Linde || 2103260611
+Micah Bell

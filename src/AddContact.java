@@ -10,25 +10,24 @@ import java.util.Scanner;
 public class AddContact {
 
     private String name;
-    private int phoneNumber;
+    private String phoneNumber;
 
-    public AddContact(String name) {
+    public AddContact() {
     }
 
-    public void AddContact(String name) {
-        System.out.println("Enter new contact name: ");
 
+
+    public void AddNewContact(String name) {
         String directory = "contacts"; // goes back to the root of the project
         String filename = "contacts.txt"; // reason for strings is it's just easier to work with atm
 
         Path dataDirectory = Paths.get(directory);
         Path dataFile = Paths.get(directory,filename); // atm, this file doesn't actually exist
 
-        Scanner scanner = new Scanner(System.in);
-        String userInput = scanner.nextLine();
+        List<String> contactsList = Arrays.asList("John Marston || 123456789", "Arthur Morgan || 2103314814", "Dutch Van Der Linde || 2103260611");
 
-        List<String> contactsList = Arrays.asList("John Marston", "Arthur Morgan", "Dutch Van Der Linde");
-        List<Integer> phoneNumberList = Arrays.asList(123456789, 2103314814, 2103260611);
+//        Scanner input = new Scanner(System.in);
+//        String contactName = input.getString("Enter the contacts name and number: ");
 
         try {
             Files.write(dataFile, contactsList);
@@ -40,8 +39,15 @@ public class AddContact {
         } catch (IOException e){
             e.printStackTrace();
         }
+        try {
+            List<String> contactListFromFile = Files.readAllLines(dataFile);
+            for (int i = 1; i <= contactListFromFile.size(); i+= 1){ // if you want it numbered !
+                System.out.println(i + ": " + contactListFromFile.get(i - 1)); // .get is getting value from a list (index)
+            }
+        } catch (IOException e){
+            e.printStackTrace();
+        }
 
-        System.out.println("Contact added!");
     }
 
     public String getName() {
@@ -53,53 +59,13 @@ public class AddContact {
     }
 
 
-    public int getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
-
-    public static void main(String[] args) {
-
-        String directory = "contacts"; // goes back to the root of the project
-        String filename = "contacts.txt"; // reason for strings is it's just easier to work with atm
-
-        Path dataDirectory = Paths.get(directory);
-        Path dataFile = Paths.get(directory,filename); // atm, this file doesn't actually exist
-        System.out.println(dataFile);
-
-        // OG CONTACTS LIST
-        List<String> contactsList = Arrays.asList("John Marston", "Arthur Morgan", "Dutch Van Der Linde");
-        List<Integer> phoneNumberList = Arrays.asList(123456789, 2103314814, 2103260611);
-
-        try {
-            Files.write(dataFile, contactsList);
-            List<String> newContactList = Arrays.asList("Sadie Adler");
-            Files.write(
-                    dataFile,
-                    newContactList,
-                    StandardOpenOption.APPEND);
-        } catch (IOException e){
-            e.printStackTrace();
-        }
-
-        // LIST OF CONTACTS
-        try {
-            List<String> contactListFromFile = Files.readAllLines(dataFile);
-            System.out.println(contactListFromFile);
-            for (int i = 1; i <= contactListFromFile.size(); i+= 1){ // if you want it numbered !
-                System.out.println(i + ": " + contactListFromFile.get(i - 1) + " || Phone Number: "); // .get is getting value from a list (index)
-            }
-        } catch (IOException e){
-            e.printStackTrace();
-        }
-
-
-
-    }
-
 
 
 }
