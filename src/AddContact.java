@@ -47,17 +47,18 @@ public class AddContact {
         String addedContact = input.nextLine();
         boolean isAdded = false;
 
-        try {
-            List<String> lines = Files.readAllLines(dataFile);
+//        try {
+//            List<String> lines = Files.readAllLines(dataFile);
+//
+//            for (String line : lines) {
+//                if (line.equals(addedContact)) {
+//                    isAdded = true;
+//                }
+//            }
+//        } catch(IOException e){
+//            e.printStackTrace();
+//        }
 
-            for (String line : lines) {
-                if (line.equals(addedContact)) {
-                    isAdded = true;
-                } catch(IOException e){
-                    e.printStackTrace();
-                }
-            }
-        }
 
 
         try {
