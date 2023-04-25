@@ -1,4 +1,5 @@
 import java.io.IOException;
+import java.io.PrintStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -12,17 +13,20 @@ public class SearchContact {
         Path dataFile = Paths.get(directory, filename);
         Scanner scanner = new Scanner(System.in);
 
+        ReadContacts readContacts = new ReadContacts();
+
+
+        List<String> contactsList = readContacts.readContacts();
+        String searchedContact = "";
+
+
         System.out.println("Input the contact you would like to find.");
         String contactInput = scanner.nextLine();
-        try {
-            List<String> lines = Files.readAllLines(dataFile);
-            for(String line : lines){
-                if(line.equalsIgnoreCase(contactInput)){
-                    System.out.println(contactInput);
-                }
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
+
+        if(contactsList.contains(contactInput)){
+            searchedContact = contactInput;
         }
+
+        System.out.println(searchedContact);
     }
 }
