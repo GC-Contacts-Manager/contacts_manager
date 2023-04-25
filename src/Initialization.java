@@ -1,13 +1,6 @@
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.Scanner;
 
 public class Initialization {
-    public String directory = "contacts";
-    public String filename = "contacts.txt";
-    public Path dataFile = Paths.get(directory, filename);
-
-
     public static void startProgram() {
         // INITIALIZATIONS
         Scanner scanner = new Scanner(System.in);
