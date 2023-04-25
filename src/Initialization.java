@@ -1,8 +1,22 @@
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Scanner;
 
 public class Initialization {
+    public String directory = "contacts";
+    public String filename = "contacts.txt";
+    public Path dataFile = Paths.get(directory, filename);
+
+
     public static void startProgram() {
+        // INITIALIZATIONS
         Scanner scanner = new Scanner(System.in);
+        ReadContacts contacts = new ReadContacts();
+        SearchContact contactSearch = new SearchContact();
+        AddContact addContact = new AddContact();
+        DeleteContact deleteContact = new DeleteContact();
+        End killIt = new End();
+
         System.out.println("Select an option.");
         System.out.println("1. View contacts.\n" +
                 "2. Add a new contact.\n" +
@@ -12,10 +26,8 @@ public class Initialization {
                 "Enter an option (1, 2, 3, 4 or 5):\n");
         int userChoice = scanner.nextInt();
         scanner.nextLine();
-        ReadContacts contacts = new ReadContacts();
-        SearchContact contactSearch = new SearchContact();
 
-
+        // USER INPUTS AND METHOD CALLS
 
         if (userChoice == 1){
             contacts.readContacts();
@@ -25,7 +37,7 @@ public class Initialization {
                 startProgram();
             }
         } else if(userChoice == 2) {
-            System.out.println("You selected 2");
+            addContact.AddNewContact();
             System.out.println("Would you like to select another option? [Y/N]");
             String continueProgram = scanner.nextLine();
             if(continueProgram.equalsIgnoreCase("y")){
@@ -39,19 +51,14 @@ public class Initialization {
                 startProgram();
             }
         } else if(userChoice == 4) {
-            System.out.println("You selected 2");
+            deleteContact.removeContact();
             System.out.println("Would you like to select another option? [Y/N]");
             String continueProgram = scanner.nextLine();
             if (continueProgram.equalsIgnoreCase("y")) {
                 startProgram();
             }
         } else if(userChoice == 5) {
-            System.out.println("You selected 2");
-            System.out.println("Would you like to select another option? [Y/N]");
-            String continueProgram = scanner.nextLine();
-            if (continueProgram.equalsIgnoreCase("y")) {
-                startProgram();
-            }
+            killIt.killSwitch();
         }
     }
 }
