@@ -20,10 +20,12 @@ public class SearchContact {
         System.out.println("Input the contact you would like to find.");
         String contactInput = scanner.nextLine();
 
-        if(contactsList.contains(contactInput)){
-            searchedContact = contactInput;
+        // search contact list by name
+        for (int i = 0; i < contactsList.size(); i++) {
+            if (contactsList.get(i).contains(contactInput)) {
+                searchedContact = contactsList.get(i);
+            }
         }
-
         System.out.println(searchedContact);
     }
 }
