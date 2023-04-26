@@ -2,7 +2,6 @@ import java.util.Scanner;
 
 public class Initialization {
     public static void startProgram() {
-        // INITIALIZATIONS
         Scanner scanner = new Scanner(System.in);
         ReadContacts contacts = new ReadContacts();
         SearchContact contactSearch = new SearchContact();
