@@ -42,22 +42,22 @@ public class AddContact {
 
         List<String> contactsList = Arrays.asList("John Marston || 123456789", "Arthur Morgan || 2103314814", "Dutch Van Der Linde || 2103260611");
 
+        System.out.println("Please input the new contacts name and phone number: ");
         Scanner input = new Scanner(System.in);
-        // String contactName = input.getString("Enter the contacts name and number: ");
         String addedContact = input.nextLine();
         boolean isAdded = false;
 
-//        try {
-//            List<String> lines = Files.readAllLines(dataFile);
-//
-//            for (String line : lines) {
-//                if (line.equals(addedContact)) {
-//                    isAdded = true;
-//                }
-//            }
-//        } catch(IOException e){
-//            e.printStackTrace();
-//        }
+        try {
+            List<String> lines = Files.readAllLines(dataFile);
+
+            for (String line : lines) {
+                if (line.equals(addedContact)) {
+                    isAdded = true;
+                }
+            }
+        } catch(IOException e){
+            e.printStackTrace();
+        }
 
 
 
