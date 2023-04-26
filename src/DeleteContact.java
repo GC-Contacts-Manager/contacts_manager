@@ -20,8 +20,11 @@ public class DeleteContact {
         System.out.println("Input the contact you would like to delete.");
         String deleteContact = scanner.nextLine();
 
-        if(contactsList.contains(deleteContact)) {
-            contactsList.remove(deleteContact);
+        // delete a contact list
+        for (int i = 0; i < contactsList.size(); i++) {
+            if (contactsList.get(i).contains(deleteContact)) {
+                contactsList.remove(i);
+            }
         }
 
         List<String> updatedList = contactsList;
