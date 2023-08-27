@@ -8,30 +8,6 @@ import java.util.Scanner;
 
 public class AddContact {
 
-    private String name;
-    private String phoneNumber;
-
-    public AddContact() {
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
-
     public void AddNewContact() {
         String directory = "contacts"; // goes back to the root of the project
         String filename = "contacts.txt"; // reason for strings is it's just easier to work with atm
@@ -46,6 +22,7 @@ public class AddContact {
         String addedNumber = input.nextLine();
         String contact = (addedContact + " | " + addedNumber);
         contactsList.add(contact);
+
         try {
             Files.write(dataFile, contactsList);
             Files.write(
